@@ -1,0 +1,1699 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paladar Fino - Gastronomia Sofisticada</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --wine-dark: #722f37;
+            --wine-medium: #8b4a52;
+            --wine-light: #a66b73;
+            --gold: #d4af37;
+            --gold-light: #f4e4a6;
+            --cream: #faf8f3;
+            --white: #ffffff;
+            --text-dark: #2c2c2c;
+            --text-light: #666666;
+            --shadow: rgba(114, 47, 55, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--cream);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--wine-dark) 0%, var(--wine-medium) 100%);
+            color: var(--white);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px var(--shadow);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+            text-decoration: none;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(114, 47, 55, 0.7), rgba(139, 74, 82, 0.7)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23722f37" width="1200" height="600"/><circle fill="%23d4af37" opacity="0.1" cx="200" cy="150" r="80"/><circle fill="%23d4af37" opacity="0.1" cx="800" cy="400" r="120"/><circle fill="%23d4af37" opacity="0.1" cx="1000" cy="200" r="60"/></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: var(--white);
+            margin-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--gold), var(--gold-light));
+            color: var(--wine-dark);
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Sections */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--wine-dark);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--wine-dark);
+        }
+
+        /* Course Cards */
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .course-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .course-header {
+            background: linear-gradient(135deg, var(--wine-medium), var(--wine-light));
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .course-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .course-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .course-level {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+        .course-content {
+            padding: 2rem;
+        }
+
+        .course-description {
+            margin-bottom: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .course-features {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .course-features li {
+            padding: 0.5rem 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .course-features i {
+            color: var(--gold);
+            margin-right: 0.5rem;
+            width: 20px;
+        }
+
+        .course-price {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .price-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--wine-dark);
+        }
+
+        .price-period {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .course-button {
+            width: 100%;
+            background: linear-gradient(45deg, var(--wine-dark), var(--wine-medium));
+            color: var(--white);
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .course-button:hover {
+            background: linear-gradient(45deg, var(--wine-medium), var(--wine-light));
+            transform: translateY(-2px);
+        }
+
+        /* Course Categories */
+        .course-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .category-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px var(--shadow);
+        }
+
+        .category-card.active {
+            background: linear-gradient(135deg, var(--wine-dark), var(--wine-medium));
+            color: var(--white);
+        }
+
+        .category-card.active .category-icon {
+            color: var(--gold);
+        }
+
+        .category-icon {
+            font-size: 2.5rem;
+            color: var(--wine-medium);
+            margin-bottom: 1rem;
+        }
+
+        .category-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Recipe Search */
+        .recipe-search {
+            background: var(--white);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px var(--shadow);
+            margin-bottom: 3rem;
+        }
+
+        .search-form {
+            display: grid;
+            grid-template-columns: 1fr auto auto auto;
+            gap: 1rem;
+            align-items: end;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--wine-dark);
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--wine-medium);
+        }
+
+        .search-btn {
+            background: var(--wine-dark);
+            color: var(--white);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .search-btn:hover {
+            background: var(--wine-medium);
+        }
+
+        /* Recipe Grid */
+        .recipe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .recipe-card {
+            background: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px var(--shadow);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .recipe-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, var(--wine-light), var(--gold-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--white);
+        }
+
+        .recipe-content {
+            padding: 1.5rem;
+        }
+
+        .recipe-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--wine-dark);
+        }
+
+        .recipe-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .recipe-description {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .recipe-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .difficulty {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .difficulty.easy {
+            background: #e8f5e8;
+            color: #2e7d32;
+        }
+
+        .difficulty.medium {
+            background: #fff3e0;
+            color: #f57c00;
+        }
+
+        .difficulty.hard {
+            background: #ffebee;
+            color: #d32f2f;
+        }
+
+        .favorite-btn {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .favorite-btn.active {
+            color: #e91e63;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
+            background: var(--white);
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 15px;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--wine-dark);
+        }
+
+        .ingredients-list {
+            background: var(--cream);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+
+        .ingredients-list h4 {
+            color: var(--wine-dark);
+            margin-bottom: 1rem;
+        }
+
+        .ingredients-list ul {
+            list-style: none;
+        }
+
+        .ingredients-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .instructions {
+            margin: 1.5rem 0;
+        }
+
+        .instructions h4 {
+            color: var(--wine-dark);
+            margin-bottom: 1rem;
+        }
+
+        .instructions ol {
+            padding-left: 1.5rem;
+        }
+
+        .instructions li {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: linear-gradient(135deg, var(--wine-dark), var(--wine-medium));
+            color: var(--white);
+            text-align: center;
+            padding: 4rem 0;
+        }
+
+        .newsletter h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 2rem auto 0;
+            gap: 1rem;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            background: var(--gold);
+            color: var(--wine-dark);
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--gold-light);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--wine-dark);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--gold);
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--wine-medium);
+            color: var(--wine-light);
+        }
+
+        /* Notifications */
+        .notification {
+            position: fixed;
+            top: 100px;
+            right: 20px;
+            background: var(--white);
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px var(--shadow);
+            z-index: 3000;
+            transform: translateX(400px);
+            transition: transform 0.3s ease;
+        }
+
+        .notification.show {
+            transform: translateX(0);
+        }
+
+        .notification.success {
+            border-left: 4px solid #4caf50;
+        }
+
+        .notification.error {
+            border-left: 4px solid #f44336;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--wine-dark);
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .search-form {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .course-categories {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">Paladar Fino</a>
+                <nav>
+                    <button class="menu-toggle" onclick="toggleMenu()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <ul id="nav-menu">
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#receitas">Receitas</a></li>
+                        <li><a href="#cursos">Cursos</a></li>
+                        <li><a href="#vinhos">Vinhos</a></li>
+                        <li><a href="#ebooks">E-books</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Gastronomia Sofisticada</h1>
+                <p>Descubra receitas exclusivas, harmonizações perfeitas e o mundo da alta gastronomia</p>
+                <a href="#receitas" class="cta-button">Explorar Receitas</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Por que escolher o Paladar Fino?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>1000+ Receitas</h3>
+                    <p>Receitas exclusivas organizadas por categorias, desde entradas sofisticadas até sobremesas irresistíveis.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Cursos Profissionais</h3>
+                    <p>Aprenda técnicas culinárias avançadas com chefs renomados e torne-se um expert na cozinha.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-wine-glass-alt"></i>
+                    </div>
+                    <h3>Harmonização de Vinhos</h3>
+                    <p>Guias completos sobre vinhos e harmonizações perfeitas para elevar suas refeições.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>E-books Especializados</h3>
+                    <p>Conteúdo exclusivo de chefs renomados e técnicas culinárias avançadas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recipes Section -->
+    <section id="receitas" class="section">
+        <div class="container">
+            <h2 class="section-title">Receitas Exclusivas</h2>
+            <p class="section-subtitle">Explore nossa coleção de receitas cuidadosamente selecionadas por chefs especialistas</p>
+            
+            <!-- Search Form -->
+            <div class="recipe-search">
+                <form class="search-form" onsubmit="searchRecipes(event)">
+                    <div class="form-group">
+                        <label for="search">Buscar receita</label>
+                        <input type="text" id="search" placeholder="Digite o nome da receita...">
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Categoria</label>
+                        <select id="category">
+                            <option value="">Todas as categorias</option>
+                            <option value="entradas">Entradas</option>
+                            <option value="principais">Pratos Principais</option>
+                            <option value="sobremesas">Sobremesas</option>
+                            <option value="internacionais">Internacionais</option>
+                            <option value="veganas">Veganas</option>
+                            <option value="low-carb">Low-Carb</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="difficulty">Dificuldade</label>
+                        <select id="difficulty">
+                            <option value="">Todas</option>
+                            <option value="easy">Fácil</option>
+                            <option value="medium">Médio</option>
+                            <option value="hard">Difícil</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Recipe Grid -->
+            <div id="recipe-grid" class="recipe-grid">
+                <!-- Recipes will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="cursos" class="section">
+        <div class="container">
+            <h2 class="section-title">Cursos de Gastronomia</h2>
+            <p class="section-subtitle">Aprenda com os melhores chefs e domine as técnicas culinárias mais sofisticadas</p>
+            
+            <!-- Course Categories -->
+            <div class="course-categories">
+                <div class="category-card active" onclick="filterCourses('all')">
+                    <div class="category-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="category-title">Todos os Cursos</h3>
+                    <p>Ver todos disponíveis</p>
+                </div>
+                <div class="category-card" onclick="filterCourses('tecnicas')">
+                    <div class="category-icon">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3 class="category-title">Técnicas & Cortes</h3>
+                    <p>Fundamentos essenciais</p>
+                </div>
+                <div class="category-card" onclick="filterCourses('carnes')">
+                    <div class="category-icon">
+                        <i class="fas fa-drumstick-bite"></i>
+                    </div>
+                    <h3 class="category-title">Carnes & Aves</h3>
+                    <p>Preparo profissional</p>
+                </div>
+                <div class="category-card" onclick="filterCourses('massas')">
+                    <div class="category-icon">
+                        <i class="fas fa-pizza-slice"></i>
+                    </div>
+                    <h3 class="category-title">Massas & Pães</h3>
+                    <p>Arte da panificação</p>
+                </div>
+                <div class="category-card" onclick="filterCourses('doces')">
+                    <div class="category-icon">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <h3 class="category-title">Confeitaria</h3>
+                    <p>Doces sofisticados</p>
+                </div>
+                <div class="category-card" onclick="filterCourses('vinhos')">
+                    <div class="category-icon">
+                        <i class="fas fa-wine-glass-alt"></i>
+                    </div>
+                    <h3 class="category-title">Sommelier</h3>
+                    <p>Mundo dos vinhos</p>
+                </div>
+            </div>
+
+            <!-- Course Grid -->
+            <div id="course-grid" class="course-grid">
+                <!-- Courses will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <div class="container">
+            <h3>Newsletter Exclusiva</h3>
+            <p>Receba receitas exclusivas e dicas gastronômicas diretamente no seu e-mail</p>
+            <form class="newsletter-form" onsubmit="subscribeNewsletter(event)">
+                <input type="email" placeholder="Seu melhor e-mail" required>
+                <button type="submit">Inscrever-se</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Paladar Fino</h4>
+                    <p>Sua jornada gastronômica começa aqui. Descubra sabores únicos e técnicas refinadas.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="#receitas">Receitas</a></li>
+                        <li><a href="#cursos">Cursos</a></li>
+                        <li><a href="#vinhos">Vinhos</a></li>
+                        <li><a href="#ebooks">E-books</a></li>
+                        <li><a href="#blog">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Categorias</h4>
+                    <ul>
+                        <li><a href="#">Entradas</a></li>
+                        <li><a href="#">Pratos Principais</a></li>
+                        <li><a href="#">Sobremesas</a></li>
+                        <li><a href="#">Receitas Veganas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> contato@paladarfino.com</li>
+                        <li><i class="fas fa-phone"></i> (11) 9999-9999</li>
+                        <li><i class="fas fa-map-marker-alt"></i> São Paulo, SP</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Paladar Fino. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Recipe Modal -->
+    <div id="recipe-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <div id="modal-recipe-content">
+                <!-- Recipe details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Course Modal -->
+    <div id="course-modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeCourseModal()">&times;</button>
+            <div id="modal-course-content">
+                <!-- Course details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Recipe data
+        const recipes = [
+            {
+                id: 1,
+                title: "Risotto de Cogumelos Porcini",
+                category: "principais",
+                difficulty: "medium",
+                time: "45 min",
+                servings: 4,
+                description: "Um risotto cremoso com cogumelos porcini e parmesão envelhecido.",
+                ingredients: [
+                    "400g de arroz arbóreo",
+                    "200g de cogumelos porcini",
+                    "1L de caldo de legumes",
+                    "1 cebola média picada",
+                    "100ml de vinho branco seco",
+                    "100g de parmesão ralado",
+                    "50g de manteiga",
+                    "Azeite extra virgem",
+                    "Sal e pimenta a gosto"
+                ],
+                instructions: [
+                    "Hidrate os cogumelos porcini em água morna por 20 minutos.",
+                    "Aqueça o caldo de legumes em uma panela separada.",
+                    "Em uma panela larga, refogue a cebola no azeite até ficar transparente.",
+                    "Adicione o arroz e mexa por 2 minutos até os grãos ficarem nacarados.",
+                    "Adicione o vinho branco e mexa até evaporar.",
+                    "Adicione o caldo quente, uma concha de cada vez, mexendo sempre.",
+                    "Incorpore os cogumelos e continue cozinhando por 18-20 minutos.",
+                    "Finalize com manteiga, parmesão, sal e pimenta."
+                ],
+                icon: "🍄"
+            },
+            {
+                id: 2,
+                title: "Salmão Grelhado com Crosta de Ervas",
+                category: "principais",
+                difficulty: "easy",
+                time: "30 min",
+                servings: 2,
+                description: "Filé de salmão com crosta aromática de ervas frescas e limão.",
+                ingredients: [
+                    "2 filés de salmão (150g cada)",
+                    "2 colheres de sopa de breadcrumbs",
+                    "1 colher de sopa de salsa picada",
+                    "1 colher de sopa de dill picado",
+                    "1 dente de alho picado",
+                    "Raspas de 1 limão",
+                    "2 colheres de sopa de azeite",
+                    "Sal e pimenta a gosto"
+                ],
+                instructions: [
+                    "Pré-aqueça o forno a 200°C.",
+                    "Misture breadcrumbs, ervas, alho, raspas de limão e azeite.",
+                    "Tempere os filés de salmão com sal e pimenta.",
+                    "Cubra os filés com a mistura de ervas.",
+                    "Asse por 12-15 minutos até a crosta dourar.",
+                    "Sirva imediatamente com legumes grelhados."
+                ],
+                icon: "🐟"
+            },
+            {
+                id: 3,
+                title: "Tiramisù Clássico",
+                category: "sobremesas",
+                difficulty: "medium",
+                time: "4h (com descanso)",
+                servings: 8,
+                description: "A sobremesa italiana mais famosa, com camadas de mascarpone e café.",
+                ingredients: [
+                    "6 gemas de ovo",
+                    "150g de açúcar",
+                    "500g de mascarpone",
+                    "300ml de café espresso forte",
+                    "3 colheres de sopa de licor de café",
+                    "200g de biscoitos savoiardi",
+                    "Cacau em pó para polvilhar",
+                    "Chocolate amargo ralado"
+                ],
+                instructions: [
+                    "Bata as gemas com açúcar até ficarem claras e cremosas.",
+                    "Incorpore delicadamente o mascarpone à mistura.",
+                    "Misture o café com o licor em uma tigela rasa.",
+                    "Molhe rapidamente cada biscoito no café.",
+                    "Monte camadas alternadas de biscoito e creme.",
+                    "Refrigere por pelo menos 4 horas.",
+                    "Antes de servir, polvilhe com cacau e chocolate."
+                ],
+                icon: "🍰"
+            },
+            {
+                id: 4,
+                title: "Carpaccio de Carne com Rúcula",
+                category: "entradas",
+                difficulty: "easy",
+                time: "20 min",
+                servings: 4,
+                description: "Fatias finas de carne crua temperadas com azeite, limão e parmesão.",
+                ingredients: [
+                    "400g de filé mignon",
+                    "100g de rúcula",
+                    "80g de parmesão em lascas",
+                    "4 colheres de sopa de azeite extra virgem",
+                    "Suco de 1 limão",
+                    "Sal marinho em flocos",
+                    "Pimenta preta moída na hora",
+                    "Alcaparras (opcional)"
+                ],
+                instructions: [
+                    "Congele a carne por 30 minutos para facilitar o corte.",
+                    "Corte a carne em fatias bem finas com faca afiada.",
+                    "Disponha as fatias em pratos individuais.",
+                    "Regue com azeite e suco de limão.",
+                    "Tempere com sal e pimenta.",
+                    "Decore com rúcula e lascas de parmesão.",
+                    "Sirva imediatamente."
+                ],
+                icon: "🥩"
+            },
+            {
+                id: 5,
+                title: "Paella Valenciana",
+                category: "internacionais",
+                difficulty: "hard",
+                time: "1h 30min",
+                servings: 6,
+                description: "A autêntica paella espanhola com frango, coelho e feijão verde.",
+                ingredients: [
+                    "500g de arroz bomba",
+                    "1 frango cortado em pedaços",
+                    "500g de coelho cortado",
+                    "200g de feijão verde",
+                    "200g de feijão lima",
+                    "2 tomates ralados",
+                    "1L de caldo de frango",
+                    "Açafrão",
+                    "Azeite de oliva",
+                    "Sal e pimenta"
+                ],
+                instructions: [
+                    "Aqueça o azeite na paellera e doure as carnes.",
+                    "Adicione os legumes e refogue por 5 minutos.",
+                    "Acrescente o tomate e cozinhe até reduzir.",
+                    "Adicione o arroz e misture bem.",
+                    "Despeje o caldo quente com açafrão.",
+                    "Cozinhe em fogo alto por 10 minutos, depois baixo por 15.",
+                    "Deixe descansar por 5 minutos antes de servir."
+                ],
+                icon: "🥘"
+            },
+            {
+                id: 6,
+                title: "Bowl Vegano de Quinoa",
+                category: "veganas",
+                difficulty: "easy",
+                time: "25 min",
+                servings: 2,
+                description: "Bowl nutritivo com quinoa, legumes assados e molho tahine.",
+                ingredients: [
+                    "1 xícara de quinoa",
+                    "1 abobrinha cortada em cubos",
+                    "1 berinjela cortada em cubos",
+                    "200g de grão-de-bico cozido",
+                    "2 colheres de sopa de tahine",
+                    "Suco de 1 limão",
+                    "2 colheres de sopa de azeite",
+                    "Sal, pimenta e cominho",
+                    "Folhas verdes para decorar"
+                ],
+                instructions: [
+                    "Cozinhe a quinoa conforme instruções da embalagem.",
+                    "Tempere os legumes com azeite, sal e pimenta.",
+                    "Asse os legumes a 200°C por 20 minutos.",
+                    "Prepare o molho misturando tahine, limão e temperos.",
+                    "Monte os bowls com quinoa, legumes e grão-de-bico.",
+                    "Regue com o molho tahine.",
+                    "Decore com folhas verdes."
+                ],
+                icon: "🥗"
+            }
+        ];
+
+        // Course data
+        const courses = [
+            {
+                id: 1,
+                title: "Técnicas Fundamentais de Corte",
+                category: "tecnicas",
+                level: "Iniciante",
+                duration: "8 semanas",
+                price: "R$ 297",
+                originalPrice: "R$ 497",
+                description: "Domine os cortes básicos e avançados utilizados pelos chefs profissionais.",
+                features: [
+                    "15 técnicas de corte essenciais",
+                    "Segurança na cozinha",
+                    "Manutenção de facas",
+                    "Exercícios práticos",
+                    "Certificado de conclusão",
+                    "Acesso vitalício"
+                ],
+                modules: [
+                    "Introdução às facas e equipamentos",
+                    "Cortes básicos: brunoise, julienne, chiffonade",
+                    "Cortes de carnes e aves",
+                    "Cortes de peixes e frutos do mar",
+                    "Cortes de legumes e frutas",
+                    "Técnicas avançadas e decorativas"
+                ],
+                instructor: "Chef Marco Silva",
+                icon: "🔪"
+            },
+            {
+                id: 2,
+                title: "Mestre em Carnes",
+                category: "carnes",
+                level: "Intermediário",
+                duration: "12 semanas",
+                price: "R$ 497",
+                originalPrice: "R$ 797",
+                description: "Aprenda a preparar carnes como um verdadeiro pitmaster, desde a seleção até o ponto perfeito.",
+                features: [
+                    "Seleção e qualidade das carnes",
+                    "Técnicas de marinada",
+                    "Pontos de cocção",
+                    "Grelhados e assados",
+                    "Cortes especiais",
+                    "Acompanhamentos ideais"
+                ],
+                modules: [
+                    "Anatomia e cortes bovinos",
+                    "Técnicas de marinada e tempero",
+                    "Grelhados perfeitos",
+                    "Assados e braseados",
+                    "Carnes exóticas",
+                    "Harmonização com vinhos"
+                ],
+                instructor: "Chef Roberto Gomes",
+                icon: "🥩"
+            },
+            {
+                id: 3,
+                title: "Confeitaria Francesa",
+                category: "doces",
+                level: "Avançado",
+                duration: "16 semanas",
+                price: "R$ 697",
+                originalPrice: "R$ 997",
+                description: "Domine as técnicas clássicas da confeitaria francesa e crie sobremesas dignas de restaurantes estrelados.",
+                features: [
+                    "Técnicas clássicas francesas",
+                    "Massas e cremes básicos",
+                    "Decoração profissional",
+                    "Chocolate e caramelo",
+                    "Sobremesas geladas",
+                    "Apresentação elegante"
+                ],
+                modules: [
+                    "Massas básicas: pâte brisée, sucrée, feuilletée",
+                    "Cremes clássicos: pâtissière, anglaise, chantilly",
+                    "Macarons e petit fours",
+                    "Trabalho com chocolate",
+                    "Sobremesas geladas",
+                    "Decoração e finalização"
+                ],
+                instructor: "Chef Isabelle Dubois",
+                icon: "🧁"
+            },
+            {
+                id: 4,
+                title: "Massas Artesanais Italianas",
+                category: "massas",
+                level: "Intermediário",
+                duration: "10 semanas",
+                price: "R$ 397",
+                originalPrice: "R$ 597",
+                description: "Aprenda a fazer massas frescas autênticas como na Itália, desde o básico até formatos complexos.",
+                features: [
+                    "Massas frescas tradicionais",
+                    "Técnicas de modelagem",
+                    "Molhos clássicos",
+                    "Recheios especiais",
+                    "Conservação adequada",
+                    "Receitas familiares"
+                ],
+                modules: [
+                    "Tipos de farinha e ovos",
+                    "Massa básica e variações",
+                    "Formatos tradicionais",
+                    "Massas recheadas",
+                    "Molhos regionais",
+                    "Apresentação e serviço"
+                ],
+                instructor: "Chef Giuseppe Romano",
+                icon: "🍝"
+            },
+            {
+                id: 5,
+                title: "Sommelier Profissional",
+                category: "vinhos",
+                level: "Avançado",
+                duration: "20 semanas",
+                price: "R$ 897",
+                originalPrice: "R$ 1297",
+                description: "Torne-se um sommelier certificado e domine a arte da degustação e harmonização de vinhos.",
+                features: [
+                    "Degustação profissional",
+                    "Regiões vinícolas mundiais",
+                    "Harmonização gastronômica",
+                    "Serviço de vinhos",
+                    "Certificação internacional",
+                    "Networking profissional"
+                ],
+                modules: [
+                    "História e produção do vinho",
+                    "Técnicas de degustação",
+                    "Regiões vinícolas clássicas",
+                    "Vinhos do Novo Mundo",
+                    "Harmonização gastronômica",
+                    "Serviço e protocolo"
+                ],
+                instructor: "Sommelier Ana Beatriz",
+                icon: "🍷"
+            },
+            {
+                id: 6,
+                title: "Panificação Artesanal",
+                category: "massas",
+                level: "Iniciante",
+                duration: "6 semanas",
+                price: "R$ 247",
+                originalPrice: "R$ 397",
+                description: "Descubra os segredos da panificação artesanal e faça pães incríveis em casa.",
+                features: [
+                    "Fermentação natural",
+                    "Pães tradicionais",
+                    "Técnicas de modelagem",
+                    "Fornos domésticos",
+                    "Conservação ideal",
+                    "Receitas exclusivas"
+                ],
+                modules: [
+                    "Ingredientes e fermentação",
+                    "Pães básicos",
+                    "Pães especiais",
+                    "Técnicas de cocção",
+                    "Pães doces",
+                    "Troubleshooting"
+                ],
+                instructor: "Chef Padeiro João Santos",
+                icon: "🍞"
+            }
+        ];
+
+        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        let filteredRecipes = [...recipes];
+        let filteredCourses = [...courses];
+        let currentCourseFilter = 'all';
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            displayRecipes(recipes);
+            displayCourses(courses);
+        });
+
+        // Toggle mobile menu
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('active');
+        }
+
+        // Display recipes
+        function displayRecipes(recipesToShow) {
+            const grid = document.getElementById('recipe-grid');
+            grid.innerHTML = '';
+
+            recipesToShow.forEach(recipe => {
+                const isFavorite = favorites.includes(recipe.id);
+                const card = document.createElement('div');
+                card.className = 'recipe-card';
+                card.innerHTML = `
+                    <div class="recipe-image">
+                        ${recipe.icon}
+                    </div>
+                    <div class="recipe-content">
+                        <h3 class="recipe-title">${recipe.title}</h3>
+                        <div class="recipe-meta">
+                            <span><i class="fas fa-clock"></i> ${recipe.time}</span>
+                            <span><i class="fas fa-users"></i> ${recipe.servings} porções</span>
+                        </div>
+                        <p class="recipe-description">${recipe.description}</p>
+                        <div class="recipe-actions">
+                            <span class="difficulty ${recipe.difficulty}">
+                                ${recipe.difficulty === 'easy' ? 'Fácil' : 
+                                  recipe.difficulty === 'medium' ? 'Médio' : 'Difícil'}
+                            </span>
+                            <button class="favorite-btn ${isFavorite ? 'active' : ''}" 
+                                    onclick="toggleFavorite(${recipe.id})">
+                                <i class="fas fa-heart"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                card.addEventListener('click', (e) => {
+                    if (!e.target.closest('.favorite-btn')) {
+                        openRecipeModal(recipe);
+                    }
+                });
+                grid.appendChild(card);
+            });
+        }
+
+        // Display courses
+        function displayCourses(coursesToShow) {
+            const grid = document.getElementById('course-grid');
+            grid.innerHTML = '';
+
+            coursesToShow.forEach(course => {
+                const card = document.createElement('div');
+                card.className = 'course-card';
+                card.innerHTML = `
+                    <div class="course-header">
+                        <div class="course-icon">${course.icon}</div>
+                        <h3 class="course-title">${course.title}</h3>
+                        <span class="course-level">${course.level}</span>
+                    </div>
+                    <div class="course-content">
+                        <p class="course-description">${course.description}</p>
+                        <ul class="course-features">
+                            ${course.features.map(feature => `<li><i class="fas fa-check"></i> ${feature}</li>`).join('')}
+                        </ul>
+                        <div class="course-price">
+                            <div>
+                                <span class="price-value">${course.price}</span>
+                                <div class="price-period">
+                                    <s style="color: #999;">${course.originalPrice}</s> • ${course.duration}
+                                </div>
+                            </div>
+                        </div>
+                        <button class="course-button" onclick="openCourseModal(${course.id})">
+                            Ver Detalhes
+                        </button>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Filter courses
+        function filterCourses(category) {
+            currentCourseFilter = category;
+            
+            // Update active category
+            document.querySelectorAll('.category-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            event.target.closest('.category-card').classList.add('active');
+
+            // Filter courses
+            if (category === 'all') {
+                filteredCourses = [...courses];
+            } else {
+                filteredCourses = courses.filter(course => course.category === category);
+            }
+
+            displayCourses(filteredCourses);
+        }
+
+        // Search recipes
+        function searchRecipes(event) {
+            event.preventDefault();
+            const searchTerm = document.getElementById('search').value.toLowerCase();
+            const category = document.getElementById('category').value;
+            const difficulty = document.getElementById('difficulty').value;
+
+            filteredRecipes = recipes.filter(recipe => {
+                const matchesSearch = recipe.title.toLowerCase().includes(searchTerm) ||
+                                    recipe.description.toLowerCase().includes(searchTerm);
+                const matchesCategory = !category || recipe.category === category;
+                const matchesDifficulty = !difficulty || recipe.difficulty === difficulty;
+
+                return matchesSearch && matchesCategory && matchesDifficulty;
+            });
+
+            displayRecipes(filteredRecipes);
+            
+            if (filteredRecipes.length === 0) {
+                showNotification('Nenhuma receita encontrada com os filtros selecionados.', 'error');
+            }
+        }
+
+        // Toggle favorite
+        function toggleFavorite(recipeId) {
+            const index = favorites.indexOf(recipeId);
+            if (index > -1) {
+                favorites.splice(index, 1);
+                showNotification('Receita removida dos favoritos!', 'success');
+            } else {
+                favorites.push(recipeId);
+                showNotification('Receita adicionada aos favoritos!', 'success');
+            }
+            
+            localStorage.setItem('favorites', JSON.stringify(favorites));
+            displayRecipes(filteredRecipes);
+        }
+
+        // Open recipe modal
+        function openRecipeModal(recipe) {
+            const modal = document.getElementById('recipe-modal');
+            const content = document.getElementById('modal-recipe-content');
+            
+            content.innerHTML = `
+                <h2 class="modal-title">${recipe.title}</h2>
+                <div class="recipe-meta">
+                    <span><i class="fas fa-clock"></i> ${recipe.time}</span>
+                    <span><i class="fas fa-users"></i> ${recipe.servings} porções</span>
+                    <span class="difficulty ${recipe.difficulty}">
+                        ${recipe.difficulty === 'easy' ? 'Fácil' : 
+                          recipe.difficulty === 'medium' ? 'Médio' : 'Difícil'}
+                    </span>
+                </div>
+                <p>${recipe.description}</p>
+                
+                <div class="ingredients-list">
+                    <h4><i class="fas fa-list"></i> Ingredientes</h4>
+                    <ul>
+                        ${recipe.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}
+                    </ul>
+                </div>
+                
+                <div class="instructions">
+                    <h4><i class="fas fa-utensils"></i> Modo de Preparo</h4>
+                    <ol>
+                        ${recipe.instructions.map(instruction => `<li>${instruction}</li>`).join('')}
+                    </ol>
+                </div>
+            `;
+            
+            modal.style.display = 'block';
+        }
+
+        // Open course modal
+        function openCourseModal(courseId) {
+            const course = courses.find(c => c.id === courseId);
+            const modal = document.getElementById('course-modal');
+            const content = document.getElementById('modal-course-content');
+            
+            content.innerHTML = `
+                <div class="course-header" style="margin: -2rem -2rem 2rem -2rem;">
+                    <div class="course-icon">${course.icon}</div>
+                    <h2 class="course-title">${course.title}</h2>
+                    <span class="course-level">${course.level}</span>
+                </div>
+                
+                <p style="margin-bottom: 2rem; font-size: 1.1rem;">${course.description}</p>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+                    <div>
+                        <h4 style="color: var(--wine-dark); margin-bottom: 1rem;">
+                            <i class="fas fa-star"></i> O que você vai aprender
+                        </h4>
+                        <ul class="course-features">
+                            ${course.features.map(feature => `<li><i class="fas fa-check"></i> ${feature}</li>`).join('')}
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 style="color: var(--wine-dark); margin-bottom: 1rem;">
+                            <i class="fas fa-book"></i> Módulos do Curso
+                        </h4>
+                        <ol style="padding-left: 1.5rem;">
+                            ${course.modules.map(module => `<li style="margin-bottom: 0.5rem;">${module}</li>`).join('')}
+                        </ol>
+                    </div>
+                </div>
+                
+                <div style="background: var(--cream); padding: 1.5rem; border-radius: 10px; margin-bottom: 2rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <h4 style="color: var(--wine-dark);">Instrutor: ${course.instructor}</h4>
+                            <p style="color: var(--text-light);">Duração: ${course.duration}</p>
+                        </div>
+                        <div style="text-align: right;">
+                            <div style="font-size: 2rem; font-weight: 700; color: var(--wine-dark);">${course.price}</div>
+                            <div style="color: var(--text-light);"><s>${course.originalPrice}</s></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="course-button" onclick="enrollCourse(${course.id})" style="width: 100%; font-size: 1.1rem;">
+                    <i class="fas fa-graduation-cap"></i> Inscrever-se Agora
+                </button>
+            `;
+            
+            modal.style.display = 'block';
+        }
+
+        // Enroll in course
+        function enrollCourse(courseId) {
+            const course = courses.find(c => c.id === courseId);
+            showNotification(`Inscrição realizada com sucesso no curso "${course.title}"! Você receberá um e-mail com os detalhes de acesso.`, 'success');
+            closeCourseModal();
+        }
+
+        // Close modals
+        function closeModal() {
+            document.getElementById('recipe-modal').style.display = 'none';
+        }
+
+        function closeCourseModal() {
+            document.getElementById('course-modal').style.display = 'none';
+        }
+
+        // Subscribe to newsletter
+        function subscribeNewsletter(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input[type="email"]').value;
+            
+            // Simulate subscription
+            showNotification('Inscrição realizada com sucesso! Bem-vindo ao Paladar Fino!', 'success');
+            event.target.reset();
+        }
+
+        // Show notification
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.innerHTML = `
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+                ${message}
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.classList.add('show');
+            }, 100);
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 5000);
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            const recipeModal = document.getElementById('recipe-modal');
+            const courseModal = document.getElementById('course-modal');
+            
+            if (event.target === recipeModal) {
+                closeModal();
+            }
+            if (event.target === courseModal) {
+                closeCourseModal();
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'972d44cef752240e',t:'MTc1NTgxMjIxNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
